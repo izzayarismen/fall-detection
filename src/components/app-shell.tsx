@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { BrandLogo } from "@/components/brand-logo";
+
 const NAV_ITEMS: { to: string; label: string; icon: LucideIcon }[] = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/kamera", label: "Kamera", icon: Cctv },
@@ -30,9 +32,10 @@ export function AppShell({ children }: { children: ReactNode }) {
       <aside className="card-shadow sticky top-5 flex h-[calc(100vh-2.5rem)] w-60 shrink-0 flex-col rounded-4xl bg-card p-5">
         <div className="px-2 pb-7 pt-1">
           <Link to="/dashboard" className="inline-block">
-            <span className="text-2xl font-extrabold tracking-tight text-primary font-display">
-              Rumi
-            </span>
+            <BrandLogo
+              imageClassName="size-12"
+              textClassName="text-2xl font-extrabold text-primary"
+            />
           </Link>
           <p className="mt-1 text-xs font-medium text-muted-foreground">
             Sistem Deteksi Jatuh &amp; Monitoring CCTV

@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import feedLivingRoom from "@/assets/feed-living-room.jpg";
+import { BrandLogo } from "@/components/brand-logo";
 import fallSnapshot from "@/assets/fall-snapshot.jpg";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
@@ -137,12 +138,7 @@ function Landing() {
       {/* Navbar */}
       <header className="sticky top-0 z-50 px-4 pt-4">
         <nav className="card-shadow mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full bg-card/90 py-3 pl-6 pr-3 backdrop-blur">
-          <div className="flex items-center gap-2">
-            <span className="flex size-9 items-center justify-center rounded-full bg-primary">
-              <Siren className="size-4.5 text-primary-foreground" />
-            </span>
-            <span className="text-xl font-bold tracking-tight text-primary font-display">Rumi</span>
-          </div>
+          <BrandLogo imageClassName="size-10" textClassName="text-primary" />
           <div className="hidden items-center gap-7 text-sm font-semibold text-muted-foreground md:flex">
             <a href="#fitur" className="transition-colors hover:text-foreground">
               Fitur
@@ -396,14 +392,7 @@ function Landing() {
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-wrap items-start justify-between gap-10">
             <div className="max-w-sm">
-              <div className="flex items-center gap-2">
-                <span className="flex size-9 items-center justify-center rounded-full bg-primary">
-                  <Siren className="size-4.5 text-primary-foreground" />
-                </span>
-                <span className="text-xl font-bold tracking-tight font-display text-background">
-                  Rumi
-                </span>
-              </div>
+              <BrandLogo imageClassName="size-11" textClassName="text-background" />
               <p className="mt-4 text-sm text-background/60">
                 Sistem deteksi jatuh &amp; monitoring CCTV untuk keluarga dan rumah perawatan di
                 Indonesia.

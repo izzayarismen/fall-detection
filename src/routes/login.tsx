@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, BrainCircuit, Siren } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
+import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -42,10 +43,10 @@ function LoginPage() {
       {/* Brand panel */}
       <aside className="relative hidden flex-col justify-between overflow-hidden bg-primary p-10 text-primary-foreground lg:flex">
         <Link to="/" className="flex items-center gap-2">
-          <span className="flex size-10 items-center justify-center rounded-full bg-primary-foreground/15">
-            <Siren className="size-5" />
-          </span>
-          <span className="text-2xl font-bold tracking-tight font-display">Rumi</span>
+          <BrandLogo
+            imageClassName="size-12"
+            textClassName="text-2xl text-primary-foreground"
+          />
         </Link>
         <div>
           <h2 className="max-w-md text-4xl leading-tight font-bold">
