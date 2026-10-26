@@ -25,13 +25,13 @@ import { useSavedCameras } from "@/lib/cameras";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Rumi — Dashboard Monitoring" },
+      { title: "Rumi | Dashboard Monitoring" },
       {
         name: "description",
         content:
           "Pantau live grid multi-kamera CCTV, terima fall alert real-time, dan lihat ringkasan sistem deteksi jatuh.",
       },
-      { property: "og:title", content: "Rumi — Dashboard Monitoring" },
+      { property: "og:title", content: "Rumi | Dashboard Monitoring" },
       {
         property: "og:description",
         content:

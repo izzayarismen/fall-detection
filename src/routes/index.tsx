@@ -22,13 +22,13 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rumi — Deteksi Jatuh Real-Time untuk Orang Tersayang" },
+      { title: "Rumi | Deteksi Jatuh Real-Time untuk Orang Tersayang" },
       {
         name: "description",
         content:
           "Rumi memantau kamera CCTV 24/7 dengan AI dan mengirim fall alert ke pendamping dalam hitungan detik. Mulai lindungi keluarga Anda hari ini.",
       },
-      { property: "og:title", content: "Rumi — Deteksi Jatuh Real-Time untuk Orang Tersayang" },
+      { property: "og:title", content: "Rumi | Deteksi Jatuh Real-Time untuk Orang Tersayang" },
       {
         property: "og:description",
         content:
@@ -65,7 +65,7 @@ const FEATURES = [
     icon: Cctv,
     title: "Mode CCTV multi-kamera",
     description:
-      "Pantau seluruh ruangan dalam satu dashboard — ruang tamu, kamar, dapur, hingga garasi dengan status kamera live.",
+      "Pantau seluruh ruangan dalam satu dashboard | ruang tamu, kamar, dapur, hingga garasi dengan status kamera live.",
   },
 ];
 
@@ -73,7 +73,7 @@ const STEPS = [
   {
     icon: Cctv,
     title: "Pasang kamera",
-    description: "Hubungkan kamera CCTV yang sudah ada di rumah — tidak memerlukan perangkat baru.",
+    description: "Hubungkan kamera CCTV yang sudah ada di rumah | tidak memerlukan perangkat baru.",
   },
   {
     icon: BrainCircuit,
@@ -180,7 +180,7 @@ function Landing() {
             </h1>
             <p className="mt-5 max-w-lg text-base text-muted-foreground">
               Rumi memantau kamera CCTV Anda 24/7 dan langsung mengirim peringatan ke seluruh
-              pendamping saat kejadian jatuh terdeteksi — rata-rata hanya 2,4 detik.
+              pendamping saat kejadian jatuh terdeteksi | rata-rata hanya 2,4 detik.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button asChild size="lg" className="rounded-full px-7 font-semibold">
@@ -270,7 +270,7 @@ function Landing() {
             </h2>
             <p className="mt-4 text-base text-muted-foreground">
               Satu dashboard untuk memantau kamera, menerima fall alert real-time, dan mengelola
-              riwayat insiden — tanpa perangkat tambahan.
+              riwayat insiden | tanpa perangkat tambahan.
             </p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

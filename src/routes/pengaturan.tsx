@@ -9,13 +9,13 @@ import { Switch } from "@/components/ui/switch";
 export const Route = createFileRoute("/pengaturan")({
   head: () => ({
     meta: [
-      { title: "Pengaturan — Rumi" },
+      { title: "Pengaturan | Rumi" },
       {
         name: "description",
         content:
           "Kelola akun, notifikasi fall alert, dan protokol stream yang didukung sistem deteksi jatuh.",
       },
-      { property: "og:title", content: "Pengaturan — Rumi" },
+      { property: "og:title", content: "Pengaturan | Rumi" },
       {
         property: "og:description",
         content:
@@ -136,7 +136,7 @@ function PengaturanPage() {
               </li>
               <li className="flex items-start gap-3">
                 <Smartphone className="mt-0.5 size-4 text-primary" />
-                Sesi aktif: 2 perangkat — Chrome desktop &amp; aplikasi pendamping mobile.
+                Sesi aktif: 2 perangkat | Chrome desktop &amp; aplikasi pendamping mobile.
               </li>
             </ul>
             <div>

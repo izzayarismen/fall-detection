@@ -10,13 +10,13 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/register")({
   head: () => ({
     meta: [
-      { title: "Rumi — Buat Akun Baru" },
+      { title: "Rumi | Buat Akun Baru" },
       {
         name: "description",
         content:
           "Daftar Rumi dan mulai lindungi orang tersayang dengan deteksi jatuh real-time berbasis AI.",
       },
-      { property: "og:title", content: "Rumi — Buat Akun Baru" },
+      { property: "og:title", content: "Rumi | Buat Akun Baru" },
       {
         property: "og:description",
         content:
@@ -46,6 +46,7 @@ function RegisterPage() {
       <aside className="relative hidden flex-col justify-between overflow-hidden bg-primary p-10 text-primary-foreground lg:flex">
         <Link to="/" className="flex items-center gap-2">
           <BrandLogo
+            src="/icon-white.png"
             imageClassName="size-12"
             textClassName="text-2xl text-primary-foreground"
           />
@@ -57,7 +58,7 @@ function RegisterPage() {
           <ul className="mt-8 space-y-4 text-sm text-primary-foreground/85">
             <li className="flex items-center gap-3">
               <BrainCircuit className="size-5 shrink-0" />
-              Tanpa perangkat baru — gunakan kamera CCTV yang sudah ada
+              Tanpa perangkat baru | gunakan kamera CCTV yang sudah ada
             </li>
             <li className="flex items-center gap-3">
               <Siren className="size-5 shrink-0" />

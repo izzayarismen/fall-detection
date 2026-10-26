@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Rumi — Sistem Deteksi Jatuh & Monitoring CCTV" },
+      { title: "Rumi | Sistem Deteksi Jatuh & Monitoring CCTV" },
       {
         name: "description",
         content:
           "Dashboard pendamping untuk memantau kamera CCTV, menerima fall alert real-time, dan mengelola riwayat deteksi jatuh.",
       },
       { name: "author", content: "Rumi" },
-      { property: "og:title", content: "Rumi — Sistem Deteksi Jatuh & Monitoring CCTV" },
+      { property: "og:title", content: "Rumi | Sistem Deteksi Jatuh & Monitoring CCTV" },
       {
         property: "og:description",
         content:

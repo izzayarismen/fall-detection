@@ -5,6 +5,7 @@ type BrandLogoProps = {
   imageClassName?: string;
   textClassName?: string;
   showName?: boolean;
+  src?: string;
 };
 
 export function BrandLogo({
@@ -12,11 +13,12 @@ export function BrandLogo({
   imageClassName,
   textClassName,
   showName = true,
+  src = "/icon.png",
 }: BrandLogoProps) {
   return (
     <span className={cn("inline-flex items-center gap-2", className)}>
       <img
-        src="/icon.png"
+        src={src}
         alt="Logo Rumi"
         width={512}
         height={512}

@@ -10,12 +10,12 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Rumi — Masuk ke Akun Anda" },
+      { title: "Rumi | Masuk ke Akun Anda" },
       {
         name: "description",
         content: "Masuk ke dashboard Rumi untuk memantau kamera dan menerima fall alert real-time.",
       },
-      { property: "og:title", content: "Rumi — Masuk ke Akun Anda" },
+      { property: "og:title", content: "Rumi | Masuk ke Akun Anda" },
       {
         property: "og:description",
         content:
@@ -44,6 +44,7 @@ function LoginPage() {
       <aside className="relative hidden flex-col justify-between overflow-hidden bg-primary p-10 text-primary-foreground lg:flex">
         <Link to="/" className="flex items-center gap-2">
           <BrandLogo
+            src="/icon-white.png"
             imageClassName="size-12"
             textClassName="text-2xl text-primary-foreground"
           />

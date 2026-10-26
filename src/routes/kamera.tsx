@@ -25,13 +25,13 @@ import { addCamera, removeCamera, useSavedCameras } from "@/lib/cameras";
 export const Route = createFileRoute("/kamera")({
   head: () => ({
     meta: [
-      { title: "Kamera CCTV — Rumi" },
+      { title: "Kamera CCTV | Rumi" },
       {
         name: "description",
         content:
           "Kelola daftar kamera CCTV: tambah, edit, dan hapus feed RTSP/HTTP yang diproses model deteksi jatuh.",
       },
-      { property: "og:title", content: "Kamera CCTV — Rumi" },
+      { property: "og:title", content: "Kamera CCTV | Rumi" },
       {
         property: "og:description",
         content:
