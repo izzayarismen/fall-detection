@@ -12,13 +12,13 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/riwayat")({
   head: () => ({
     meta: [
-      { title: "Riwayat Deteksi Jatuh — Waspada" },
+      { title: "Riwayat Deteksi Jatuh — Rumi" },
       {
         name: "description",
         content:
           "Riwayat insiden deteksi jatuh: tanggal, lokasi kamera, snapshot bukti, dan status penanganan.",
       },
-      { property: "og:title", content: "Riwayat Deteksi Jatuh — Waspada" },
+      { property: "og:title", content: "Riwayat Deteksi Jatuh — Rumi" },
       {
         property: "og:description",
         content:

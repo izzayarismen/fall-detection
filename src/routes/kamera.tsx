@@ -12,13 +12,13 @@ import { Input } from "@/components/ui/input";
 export const Route = createFileRoute("/kamera")({
   head: () => ({
     meta: [
-      { title: "Kamera CCTV — Waspada" },
+      { title: "Kamera CCTV — Rumi" },
       {
         name: "description",
         content:
           "Kelola daftar kamera CCTV: tambah, edit, dan hapus feed RTSP/HTTP yang diproses model deteksi jatuh.",
       },
-      { property: "og:title", content: "Kamera CCTV — Waspada" },
+      { property: "og:title", content: "Kamera CCTV — Rumi" },
       {
         property: "og:description",
         content:

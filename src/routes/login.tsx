@@ -9,16 +9,16 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Waspada — Masuk ke Akun Anda" },
+      { title: "Rumi — Masuk ke Akun Anda" },
       {
         name: "description",
-        content: "Masuk ke dashboard Waspada untuk memantau kamera dan menerima fall alert real-time.",
+        content: "Masuk ke dashboard Rumi untuk memantau kamera dan menerima fall alert real-time.",
       },
-      { property: "og:title", content: "Waspada — Masuk ke Akun Anda" },
+      { property: "og:title", content: "Rumi — Masuk ke Akun Anda" },
       {
         property: "og:description",
         content:
-          "Masuk ke dashboard Waspada untuk memantau kamera dan menerima fall alert real-time.",
+          "Masuk ke dashboard Rumi untuk memantau kamera dan menerima fall alert real-time.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -45,7 +45,7 @@ function LoginPage() {
           <span className="flex size-10 items-center justify-center rounded-full bg-primary-foreground/15">
             <Siren className="size-5" />
           </span>
-          <span className="text-2xl font-bold tracking-tight font-display">waspada</span>
+          <span className="text-2xl font-bold tracking-tight font-display">Rumi</span>
         </Link>
         <div>
           <h2 className="max-w-md text-4xl leading-tight font-bold">
@@ -63,7 +63,7 @@ function LoginPage() {
           </ul>
         </div>
         <p className="text-xs text-primary-foreground/50">
-          © 2026 Waspada · Sistem Deteksi Jatuh &amp; Monitoring CCTV
+          © 2026 Rumi · Sistem Deteksi Jatuh &amp; Monitoring CCTV
         </p>
       </aside>
 

@@ -21,8 +21,6 @@ const NAV_ITEMS: { to: string; label: string; icon: LucideIcon }[] = [
 
 const TEAM_AVATARS = [
   { initials: "RA", className: "bg-primary text-primary-foreground" },
-  { initials: "BD", className: "bg-secondary text-secondary-foreground" },
-  { initials: "SK", className: "bg-destructive text-destructive-foreground" },
 ];
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -35,7 +33,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="px-2 pb-7 pt-1">
           <Link to="/dashboard" className="inline-block">
             <span className="text-2xl font-extrabold tracking-tight text-primary font-display">
-              waspada
+              Rumi
             </span>
           </Link>
           <p className="mt-1 text-xs font-medium text-muted-foreground">
@@ -82,9 +80,6 @@ export function AppShell({ children }: { children: ReactNode }) {
             </p>
           </div>
           <div className="flex items-center gap-4">
-            <span className="hidden text-sm font-medium text-muted-foreground md:block">
-              Kamis, 22 Oktober 2026 · 12:57 WIB
-            </span>
             <button
               type="button"
               aria-label="Notifikasi"
@@ -102,9 +97,6 @@ export function AppShell({ children }: { children: ReactNode }) {
                   {avatar.initials}
                 </span>
               ))}
-              <span className="card-shadow flex size-11 items-center justify-center rounded-full border-2 border-card bg-card text-foreground">
-                <Plus className="size-4" />
-              </span>
             </div>
           </div>
         </header>

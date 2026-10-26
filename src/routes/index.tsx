@@ -21,17 +21,17 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Waspada — Deteksi Jatuh Real-Time untuk Orang Tersayang" },
+      { title: "Rumi — Deteksi Jatuh Real-Time untuk Orang Tersayang" },
       {
         name: "description",
         content:
-          "Waspada memantau kamera CCTV 24/7 dengan AI dan mengirim fall alert ke pendamping dalam hitungan detik. Mulai lindungi keluarga Anda hari ini.",
+          "Rumi memantau kamera CCTV 24/7 dengan AI dan mengirim fall alert ke pendamping dalam hitungan detik. Mulai lindungi keluarga Anda hari ini.",
       },
-      { property: "og:title", content: "Waspada — Deteksi Jatuh Real-Time untuk Orang Tersayang" },
+      { property: "og:title", content: "Rumi — Deteksi Jatuh Real-Time untuk Orang Tersayang" },
       {
         property: "og:description",
         content:
-          "Waspada memantau kamera CCTV 24/7 dengan AI dan mengirim fall alert ke pendamping dalam hitungan detik. Mulai lindungi keluarga Anda hari ini.",
+          "Rumi memantau kamera CCTV 24/7 dengan AI dan mengirim fall alert ke pendamping dalam hitungan detik. Mulai lindungi keluarga Anda hari ini.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -66,24 +66,6 @@ const FEATURES = [
     description:
       "Pantau seluruh ruangan dalam satu dashboard — ruang tamu, kamar, dapur, hingga garasi dengan status kamera live.",
   },
-  {
-    icon: History,
-    title: "Riwayat & laporan insiden",
-    description:
-      "Setiap kejadian tercatat lengkap: waktu, lokasi kamera, snapshot, dan status penanganan untuk ditinjau kapan saja.",
-  },
-  {
-    icon: UserRound,
-    title: "Mode Pendamping",
-    description:
-      "Keluarga dan caregiver menerima alert di perangkat masing-masing dan dapat menandai insiden sebagai ditangani.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Privasi & kontrol akses",
-    description:
-      "Atur siapa yang dapat melihat kamera dan menerima alert. Data hanya dibagikan kepada pendamping yang Anda pilih.",
-  },
 ];
 
 const STEPS = [
@@ -95,7 +77,7 @@ const STEPS = [
   {
     icon: BrainCircuit,
     title: "AI memantau 24/7",
-    description: "Waspada menganalisis setiap ruangan secara terus-menerus, siang dan malam.",
+    description: "Rumi menganalisis setiap ruangan secara terus-menerus, siang dan malam.",
   },
   {
     icon: Siren,
@@ -112,7 +94,7 @@ const STEPS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Ibu saya tinggal sendiri dan pernah jatuh tanpa ada yang tahu berjam-jam. Sejak pakai Waspada, saya dapat notifikasi sebelum sempat khawatir.",
+      "Ibu saya tinggal sendiri dan pernah jatuh tanpa ada yang tahu berjam-jam. Sejak pakai Rumi, saya dapat notifikasi sebelum sempat khawatir.",
     name: "Rina Andini",
     role: "Anak pendamping, Jakarta",
     initials: "RA",
@@ -129,7 +111,7 @@ const TESTIMONIALS = [
 const FAQS = [
   {
     q: "Apakah saya perlu membeli kamera khusus?",
-    a: "Tidak. Waspada bekerja dengan kamera CCTV yang sudah Anda miliki selama kamera dapat diakses melalui jaringan rumah Anda.",
+    a: "Tidak. Rumi bekerja dengan kamera CCTV yang sudah Anda miliki selama kamera dapat diakses melalui jaringan rumah Anda.",
   },
   {
     q: "Seberapa cepat notifikasi terkirim saat ada kejadian jatuh?",
@@ -159,7 +141,7 @@ function Landing() {
             <span className="flex size-9 items-center justify-center rounded-full bg-primary">
               <Siren className="size-4.5 text-primary-foreground" />
             </span>
-            <span className="text-xl font-bold tracking-tight text-primary font-display">waspada</span>
+            <span className="text-xl font-bold tracking-tight text-primary font-display">Rumi</span>
           </div>
           <div className="hidden items-center gap-7 text-sm font-semibold text-muted-foreground md:flex">
             <a href="#fitur" className="transition-colors hover:text-foreground">
@@ -201,7 +183,7 @@ function Landing() {
               Deteksi jatuh dalam hitungan detik, bukan menit.
             </h1>
             <p className="mt-5 max-w-lg text-base text-muted-foreground">
-              Waspada memantau kamera CCTV Anda 24/7 dan langsung mengirim peringatan ke seluruh
+              Rumi memantau kamera CCTV Anda 24/7 dan langsung mengirim peringatan ke seluruh
               pendamping saat kejadian jatuh terdeteksi — rata-rata hanya 2,4 detik.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -244,7 +226,7 @@ function Landing() {
               <div className="relative overflow-hidden rounded-3xl">
                 <img
                   src={feedLivingRoom}
-                  alt="Feed kamera ruang tamu yang dipantau Waspada"
+                  alt="Feed kamera ruang tamu yang dipantau Rumi"
                   width={1280}
                   height={720}
                   className="aspect-[4/3] w-full object-cover"
@@ -366,7 +348,7 @@ function Landing() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-4xl font-bold text-foreground">Dipercaya oleh keluarga Indonesia</h2>
             <p className="mt-4 text-base text-muted-foreground">
-              Cerita pendamping yang kini lebih tenang dengan Waspada.
+              Cerita pendamping yang kini lebih tenang dengan Rumi.
             </p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -419,7 +401,7 @@ function Landing() {
                   <Siren className="size-4.5 text-primary-foreground" />
                 </span>
                 <span className="text-xl font-bold tracking-tight font-display text-background">
-                  waspada
+                  Rumi
                 </span>
               </div>
               <p className="mt-4 text-sm text-background/60">
@@ -480,14 +462,8 @@ function Landing() {
               </div>
             </div>
           </div>
-          <p
-            aria-hidden
-            className="mt-14 select-none text-right font-display text-[18vw] leading-none font-bold text-background/10 lg:text-[11rem]"
-          >
-            waspada
-          </p>
           <p className="mt-6 border-t border-background/10 pt-6 text-center text-xs text-background/40">
-            © 2026 Waspada. Sistem Deteksi Jatuh &amp; Monitoring CCTV.
+            © 2026 Rumi. Sistem Deteksi Jatuh &amp; Monitoring CCTV.
           </p>
         </div>
       </footer>

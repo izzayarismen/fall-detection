@@ -9,13 +9,13 @@ import { Switch } from "@/components/ui/switch";
 export const Route = createFileRoute("/pengaturan")({
   head: () => ({
     meta: [
-      { title: "Pengaturan — Waspada" },
+      { title: "Pengaturan — Rumi" },
       {
         name: "description",
         content:
           "Kelola akun, notifikasi fall alert, dan protokol stream yang didukung sistem deteksi jatuh.",
       },
-      { property: "og:title", content: "Pengaturan — Waspada" },
+      { property: "og:title", content: "Pengaturan — Rumi" },
       {
         property: "og:description",
         content:

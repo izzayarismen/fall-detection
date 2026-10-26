@@ -9,17 +9,17 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/register")({
   head: () => ({
     meta: [
-      { title: "Waspada — Buat Akun Baru" },
+      { title: "Rumi — Buat Akun Baru" },
       {
         name: "description",
         content:
-          "Daftar Waspada dan mulai lindungi orang tersayang dengan deteksi jatuh real-time berbasis AI.",
+          "Daftar Rumi dan mulai lindungi orang tersayang dengan deteksi jatuh real-time berbasis AI.",
       },
-      { property: "og:title", content: "Waspada — Buat Akun Baru" },
+      { property: "og:title", content: "Rumi — Buat Akun Baru" },
       {
         property: "og:description",
         content:
-          "Daftar Waspada dan mulai lindungi orang tersayang dengan deteksi jatuh real-time berbasis AI.",
+          "Daftar Rumi dan mulai lindungi orang tersayang dengan deteksi jatuh real-time berbasis AI.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -47,7 +47,7 @@ function RegisterPage() {
           <span className="flex size-10 items-center justify-center rounded-full bg-primary-foreground/15">
             <Siren className="size-5" />
           </span>
-          <span className="text-2xl font-bold tracking-tight font-display">waspada</span>
+          <span className="text-2xl font-bold tracking-tight font-display">Rumi</span>
         </Link>
         <div>
           <h2 className="max-w-md text-4xl leading-tight font-bold">
@@ -65,7 +65,7 @@ function RegisterPage() {
           </ul>
         </div>
         <p className="text-xs text-primary-foreground/50">
-          © 2026 Waspada · Sistem Deteksi Jatuh &amp; Monitoring CCTV
+          © 2026 Rumi · Sistem Deteksi Jatuh &amp; Monitoring CCTV
         </p>
       </aside>
 
@@ -86,7 +86,7 @@ function RegisterPage() {
           <div className="card-shadow rounded-4xl bg-card p-8">
             <h1 className="text-3xl font-bold text-foreground">Daftar</h1>
             <p className="mt-2 text-sm text-muted-foreground">
-              Buat akun Waspada untuk Anda dan orang tersayang.
+              Buat akun Rumi untuk Anda dan orang tersayang.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
@@ -131,7 +131,7 @@ function RegisterPage() {
                 Buat Akun
               </Button>
               <p className="text-center text-xs text-muted-foreground">
-                Dengan mendaftar, Anda menyetujui syarat layanan dan kebijakan privasi Waspada.
+                Dengan mendaftar, Anda menyetujui syarat layanan dan kebijakan privasi Rumi.
               </p>
             </form>
 
