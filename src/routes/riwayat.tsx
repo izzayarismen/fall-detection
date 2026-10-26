@@ -1,12 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarDays, ChevronDown, Clock, Play } from "lucide-react";
+import { CalendarDays, ChevronDown, Play } from "lucide-react";
 
 import fallSnapshot from "@/assets/fall-snapshot.jpg";
 import feedBedroom from "@/assets/feed-bedroom.jpg";
 import feedKitchen from "@/assets/feed-kitchen.jpg";
 import feedLivingRoom from "@/assets/feed-living-room.jpg";
 import { AppShell } from "@/components/app-shell";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/riwayat")({
@@ -16,13 +15,13 @@ export const Route = createFileRoute("/riwayat")({
       {
         name: "description",
         content:
-          "Riwayat insiden deteksi jatuh: tanggal, lokasi kamera, snapshot bukti, dan status penanganan.",
+          "Riwayat notifikasi insiden deteksi jatuh: tanggal, lokasi kamera, snapshot, dan klip kejadian.",
       },
       { property: "og:title", content: "Riwayat Deteksi Jatuh — Rumi" },
       {
         property: "og:description",
         content:
-          "Riwayat insiden deteksi jatuh: tanggal, lokasi kamera, snapshot bukti, dan status penanganan.",
+          "Riwayat notifikasi insiden deteksi jatuh: tanggal, lokasi kamera, snapshot, dan klip kejadian.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -37,8 +36,6 @@ const INCIDENTS = [
     time: "12:47 WIB",
     camera: "Ruang Tamu · Cam 01",
     clip: "8 dtk",
-    status: "Ditangani",
-    tone: "primary",
     image: fallSnapshot,
   },
   {
@@ -46,8 +43,6 @@ const INCIDENTS = [
     time: "07:12 WIB",
     camera: "Kamar Utama · Cam 02",
     clip: "12 dtk",
-    status: "Selesai",
-    tone: "success",
     image: feedBedroom,
   },
   {
@@ -55,8 +50,6 @@ const INCIDENTS = [
     time: "16:35 WIB",
     camera: "Dapur · Cam 03",
     clip: "6 dtk",
-    status: "Ditangani",
-    tone: "primary",
     image: feedKitchen,
   },
   {
@@ -64,8 +57,6 @@ const INCIDENTS = [
     time: "09:03 WIB",
     camera: "Ruang Tamu · Cam 01",
     clip: "5 dtk",
-    status: "Belum Ditangani",
-    tone: "destructive",
     image: feedLivingRoom,
   },
   {
@@ -73,17 +64,9 @@ const INCIDENTS = [
     time: "14:20 WIB",
     camera: "Kamar Utama · Cam 02",
     clip: "10 dtk",
-    status: "Selesai",
-    tone: "success",
     image: fallSnapshot,
   },
 ] as const;
-
-const STATUS_CLASS: Record<string, string> = {
-  primary: "bg-primary",
-  success: "bg-success",
-  destructive: "bg-destructive",
-};
 
 function RiwayatPage() {
   return (
@@ -134,24 +117,6 @@ function RiwayatPage() {
               <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             </div>
           </div>
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="filter-status" className="text-xs font-bold text-foreground">
-              Status Penanganan
-            </label>
-            <div className="relative">
-              <select
-                id="filter-status"
-                defaultValue="all"
-                className="h-10 appearance-none rounded-xl bg-muted pl-4 pr-9 text-sm font-semibold text-foreground outline-none"
-              >
-                <option value="all">Semua status</option>
-                <option value="ditangani">Ditangani</option>
-                <option value="selesai">Selesai</option>
-                <option value="belum">Belum Ditangani</option>
-              </select>
-              <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-            </div>
-          </div>
           <Button className="rounded-full">Terapkan Filter</Button>
         </section>
 
@@ -164,8 +129,6 @@ function RiwayatPage() {
                 <th className="px-5 py-4 font-bold">Tanggal &amp; Waktu</th>
                 <th className="px-5 py-4 font-bold">Kamera / Lokasi</th>
                 <th className="px-5 py-4 font-bold">Klip</th>
-                <th className="px-5 py-4 font-bold">Status</th>
-                <th className="px-5 py-4 font-bold">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -192,17 +155,6 @@ function RiwayatPage() {
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1.5 text-xs font-bold text-foreground">
                       <Play className="size-3" />
                       {incident.clip}
-                    </span>
-                  </td>
-                  <td className="px-5 py-3">
-                    <Badge className={`rounded-full ${STATUS_CLASS[incident.tone]}`}>
-                      {incident.status}
-                    </Badge>
-                  </td>
-                  <td className="px-5 py-3">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary">
-                      <Clock className="size-3.5" />
-                      Detail
                     </span>
                   </td>
                 </tr>

@@ -1,12 +1,10 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 
 import {
-  Bell,
   Cctv,
   History,
   LayoutDashboard,
   LogOut,
-  Plus,
   Settings,
   type LucideIcon,
 } from "lucide-react";
@@ -55,7 +53,15 @@ export function AppShell({ children }: { children: ReactNode }) {
                 }`}
               >
                 <item.icon className="size-5" strokeWidth={2} />
-                {item.label}
+                <span className="flex flex-1 items-center justify-between gap-2">
+                  {item.label}
+                  {item.to === "/riwayat" && (
+                    <span
+                      aria-label="Ada insiden baru"
+                      className="size-2.5 rounded-full bg-destructive ring-2 ring-card"
+                    />
+                  )}
+                </span>
               </Link>
             );
           })}
@@ -80,14 +86,6 @@ export function AppShell({ children }: { children: ReactNode }) {
             </p>
           </div>
           <div className="flex items-center gap-4">
-            <button
-              type="button"
-              aria-label="Notifikasi"
-              className="card-shadow relative flex size-11 items-center justify-center rounded-full bg-card transition-transform hover:scale-105"
-            >
-              <Bell className="size-5 text-foreground" />
-              <span className="absolute right-2.5 top-2.5 size-2.5 rounded-full bg-destructive" />
-            </button>
             <div className="flex items-center -space-x-3">
               {TEAM_AVATARS.map((avatar) => (
                 <span

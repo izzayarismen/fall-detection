@@ -143,6 +143,33 @@
   box-shadow: 0 14px 36px -20px oklch(0.4 0.07 185 / 0.35);
 }
 
+[data-camera-frame]:has(.camera-stream-offline) .camera-live-only {
+  display: none;
+}
+
+.camera-offline-only {
+  display: none;
+}
+
+[data-camera-frame]:has(.camera-stream-offline) .camera-offline-only {
+  display: inline-flex;
+}
+
+[data-camera-frame]:fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: auto;
+  background: black;
+  border-radius: 0;
+}
+
+[data-camera-frame]:fullscreen .camera-media {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

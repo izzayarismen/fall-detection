@@ -5,7 +5,6 @@ import {
   Camera,
   ChevronRight,
   CircleAlert,
-  Expand,
   Gauge,
   RadioTower,
   RefreshCw,
@@ -17,8 +16,11 @@ import feedBedroom from "@/assets/feed-bedroom.jpg";
 import feedKitchen from "@/assets/feed-kitchen.jpg";
 import feedLivingRoom from "@/assets/feed-living-room.jpg";
 import { AppShell } from "@/components/app-shell";
+import { CameraFullscreenButton } from "@/components/camera-fullscreen-button";
+import { CameraStream } from "@/components/camera-stream";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useSavedCameras } from "@/lib/cameras";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
@@ -44,8 +46,6 @@ export const Route = createFileRoute("/dashboard")({
 
 const FEEDS = [
   { name: "Ruang Tamu", cam: "Cam 01", status: "online", image: feedLivingRoom },
-  { name: "Kamar Utama", cam: "Cam 02", status: "online", image: feedBedroom },
-  { name: "Dapur", cam: "Cam 03", status: "online", image: feedKitchen },
   { name: "Garasi", cam: "Cam 04", status: "offline", image: null },
 ] as const;
 
@@ -60,6 +60,10 @@ const WEEK_ACTIVITY = [
 ];
 
 function Dashboard() {
+  const savedCameras = useSavedCameras();
+  const playableCameraCount = savedCameras.filter((camera) => camera.protocol === "HTTP").length;
+  const unavailableCameraCount = 1 + savedCameras.length - playableCameraCount;
+
   return (
     <AppShell>
       <div className="flex flex-col gap-5">
@@ -87,22 +91,46 @@ function Dashboard() {
               dalam 2,1 detik.
             </p>
           </div>
-          <div className="flex gap-2">
-            <Button className="rounded-full">Tangani</Button>
-            <Button variant="outline" className="rounded-full bg-card">
-              Lihat Detail
-            </Button>
-          </div>
+          <Button variant="outline" className="rounded-full bg-card">
+            Lihat Detail
+          </Button>
         </section>
 
-        <div className="grid gap-5 xl:grid-cols-[2fr_1fr]">
+        <div className="grid items-start gap-5 xl:grid-cols-[2fr_1fr]">
           {/* Live grid */}
-          <section className="grid gap-5 sm:grid-cols-2">
+          <section className="grid content-start gap-5 sm:grid-cols-2">
+            {savedCameras.map((camera, index) => (
+              <article
+                key={camera.id}
+                data-camera-frame
+                className="card-shadow group relative aspect-video self-start overflow-hidden rounded-3xl bg-card"
+              >
+                <CameraStream
+                  name={camera.name}
+                  url={camera.url}
+                  protocol={camera.protocol}
+                />
+                {camera.protocol === "HTTP" && (
+                  <div className="camera-live-only absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-xs font-bold text-foreground">
+                    <span className="size-2 rounded-full bg-destructive" />
+                    Live
+                  </div>
+                )}
+                <CameraFullscreenButton cameraName={camera.name} />
+                <div className="camera-live-only absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10">
+                  <p className="text-sm font-bold text-card-teal-foreground">{camera.name}</p>
+                  <p className="text-xs text-card-teal-foreground/70">
+                    {camera.location} · Cam {String(FEEDS.length + index + 1).padStart(2, "0")}
+                  </p>
+                </div>
+              </article>
+            ))}
             {FEEDS.map((feed) =>
               feed.status === "online" ? (
                 <article
                   key={feed.cam}
-                  className="card-shadow group relative overflow-hidden rounded-3xl bg-card"
+                  data-camera-frame
+                  className="card-shadow group relative aspect-video self-start overflow-hidden rounded-3xl bg-card"
                 >
                   <img
                     src={feed.image}
@@ -110,19 +138,13 @@ function Dashboard() {
                     width={1280}
                     height={720}
                     loading="lazy"
-                    className="aspect-video w-full object-cover"
+                    className="camera-media aspect-video w-full object-cover"
                   />
                   <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-xs font-bold text-foreground">
                     <span className="size-2 rounded-full bg-destructive" />
                     Live
                   </div>
-                  <button
-                    type="button"
-                    aria-label={`Perbesar ${feed.name}`}
-                    className="absolute right-3 top-3 flex size-9 items-center justify-center rounded-full bg-card/90 text-foreground transition-colors hover:bg-accent"
-                  >
-                    <Expand className="size-4" />
-                  </button>
+                  <CameraFullscreenButton cameraName={feed.name} />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10">
                     <p className="text-sm font-bold text-card-teal-foreground">{feed.name}</p>
                     <p className="text-xs text-card-teal-foreground/70">{feed.cam}</p>
@@ -131,8 +153,10 @@ function Dashboard() {
               ) : (
                 <article
                   key={feed.cam}
-                  className="card-shadow flex aspect-video flex-col items-center justify-center gap-2 rounded-3xl bg-muted"
+                  data-camera-frame
+                  className="card-shadow relative flex aspect-video flex-col items-center justify-center gap-2 overflow-hidden rounded-3xl bg-muted"
                 >
+                  <CameraFullscreenButton cameraName={feed.name} />
                   <Camera className="size-8 text-muted-foreground/60" />
                   <p className="text-sm font-bold text-muted-foreground">Kamera Offline</p>
                   <p className="text-xs text-muted-foreground/70">
@@ -170,9 +194,6 @@ function Dashboard() {
                 <p className="truncate text-sm font-bold">Pak Hartono terdeteksi jatuh</p>
                 <p className="text-xs text-muted-foreground">Ruang Tamu · 12:47 WIB</p>
               </div>
-              <Badge variant="secondary" className="rounded-full">
-                Ditangani
-              </Badge>
             </div>
 
             <div className="rounded-2xl bg-card p-4 text-foreground">
@@ -187,7 +208,7 @@ function Dashboard() {
             </div>
 
             <div className="rounded-2xl bg-card p-4 text-foreground">
-              <p className="text-sm font-bold">Waktu Respons Rata-rata</p>
+              <p className="text-sm font-bold">Waktu Pengiriman Alert</p>
               <div className="mt-1 flex items-baseline justify-between">
                 <span className="text-xs text-muted-foreground">Target &lt; 3 detik</span>
                 <span className="text-sm font-extrabold text-success">2,4 detik</span>
@@ -195,7 +216,7 @@ function Dashboard() {
             </div>
 
             <div className="mt-auto rounded-2xl bg-white/15 p-4">
-              <p className="text-sm font-semibold">Mode Pendamping aktif di 3 perangkat.</p>
+              <p className="text-sm font-semibold">Notifikasi insiden aktif di 3 perangkat.</p>
             </div>
           </section>
         </div>
@@ -207,7 +228,8 @@ function Dashboard() {
               <div>
                 <p className="text-sm font-bold text-foreground">Kamera Aktif</p>
                 <p className="mt-2 font-display text-3xl font-bold text-foreground">
-                  3<span className="text-lg text-muted-foreground">/4</span>
+                  {3 + playableCameraCount}
+                  <span className="text-lg text-muted-foreground">/{4 + savedCameras.length}</span>
                 </p>
               </div>
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary text-primary">
@@ -216,7 +238,7 @@ function Dashboard() {
             </div>
             <p className="mt-3 text-xs font-semibold text-destructive">
               <ArrowDownRight className="mr-1 inline size-4" />
-              1 kamera offline (Garasi)
+              {unavailableCameraCount} kamera belum dapat ditampilkan
             </p>
           </div>
 
@@ -263,7 +285,7 @@ function Dashboard() {
             <div>
               <h2 className="text-lg font-bold text-foreground">Insiden 7 Hari Terakhir</h2>
               <p className="text-sm text-muted-foreground">
-                Total 4 kejadian terdeteksi minggu ini · 3 ditangani
+                Total 4 kejadian terdeteksi minggu ini
               </p>
             </div>
             <Badge variant="secondary" className="rounded-full">
